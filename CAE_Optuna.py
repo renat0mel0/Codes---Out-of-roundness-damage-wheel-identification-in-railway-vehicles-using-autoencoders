@@ -170,7 +170,7 @@ def create_and_train_cae(trial):
 
     # Dividir corr1 em treino e teste
     np.random.shuffle(corr1)
-    corr1_train, corr1_test = corr1[:35], corr1[35:]
+    corr1_train, corr1_test = corr1[:70], corr1[70:]
 
     # Treinamento
     cae.fit(corr1_train, corr1_train, epochs=epochs, batch_size=batch_size, shuffle=True, verbose=0)
