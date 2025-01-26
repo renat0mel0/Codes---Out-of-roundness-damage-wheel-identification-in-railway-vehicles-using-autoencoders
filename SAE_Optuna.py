@@ -62,7 +62,7 @@ print(arquivos_3)
 # Carregar os dados de Irregularidade 1
 corr1 = []
 arquivos_corr1 = os.listdir(diretorio1)
-for arquivo in arquivos_corr1[:50]:
+for arquivo in arquivos_corr1[:100]:
     if arquivo.endswith(".mat"):
         caminho_arquivo = os.path.join(diretorio1, arquivo)
         arquivo_mat = sio.loadmat(caminho_arquivo)
@@ -83,7 +83,7 @@ plt.show()
 # Carregar os dados de Irregularidade 2
 corr2 = []
 arquivos_corr2 = os.listdir(diretorio2)
-for arquivo in arquivos_corr2[:50]:
+for arquivo in arquivos_corr2[:100]:
     if arquivo.endswith(".mat"):
         caminho_arquivo = os.path.join(diretorio2, arquivo)
         arquivo_mat = sio.loadmat(caminho_arquivo)
@@ -103,7 +103,7 @@ plt.show()
 
 corr3 = []
 arquivos_corr3 = os.listdir(diretorio3)
-for arquivo in arquivos_corr3[:50]:
+for arquivo in arquivos_corr3[:100]:
     if arquivo.endswith(".mat"):
         caminho_arquivo = os.path.join(diretorio3, arquivo)
         arquivo_mat = sio.loadmat(caminho_arquivo)
@@ -166,7 +166,7 @@ def create_and_train_sae(trial):
 
     # Dividir corr1 em treino e teste
     np.random.shuffle(corr1)
-    corr1_train, corr1_test = corr1[:35], corr1[35:]
+    corr1_train, corr1_test = corr1[:70], corr1[70:]
 
     # Treinamento
     sae.fit(corr1_train, corr1_train, epochs=epochs, batch_size=batch_size, shuffle=True, verbose=0)
